@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stdbool.h>
-#include "syslib.h"
+#include "../include/syslib.h"
 #include "config.h"
 
 

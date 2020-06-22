@@ -1,15 +1,16 @@
-all: programs
+all: gos
 
-programs:
-	$(MAKE) -C programs
+gos:
+	$(MAKE) -C gos
 
 iso:
-	cp ./programs/terminal/terminal.bin ./initrd/files/.
-	cp ./programs/writer/writer.bin ./initrd/files/.
-	cp ./programs/init/init.bin ./initrd/files/.
+	cp ./gos/terminal/terminal.bin ./initrd/files/.
+	cp ./gos/writer/writer.bin ./initrd/files/.
+	cp ./gos/init/init.bin ./initrd/files/.
+	cp ./gos/desktop/desktop.bin ./initrd/files/.
 	$(MAKE) -C initrd
 	cp ./initrd/initrd.img ./cdrom_files/.
 	mkisofs -R -b boot/grub/stage2_eltorito -no-emul-boot -boot-load-size 4 -boot-info-table -o cdrom.iso cdrom_files/
 
-.PHONY: all programs iso
+.PHONY: all gos iso
 

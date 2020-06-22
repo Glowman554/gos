@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stdbool.h>
-#include "syslib.h"
+#include "../include/syslib.h"
 
 
 void _start(void)
@@ -64,11 +64,6 @@ void _start(void)
 			pchar(0xf,10); // return
     		pstring(0xf, "Vielen dank an das tolle tutorial von lowlevel.eu");
 			pchar(0xf,10); // return
-		}
-		if(strcmp(in, "desktop")==0){
-			asm("int $0x30" : : "a" (14));
-			asm("int $0x30" : : "a" (16));
-			while(1);
 		}
 
 		if(strcmp(in, "uname")==0){

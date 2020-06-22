@@ -4,12 +4,14 @@ OBJS = $(addsuffix .o,$(basename $(SRCS)))
 CC = gcc
 LD = ld
 
+SYSLIB = ../syslib.o
+
 ASFLAGS = -m32
 CFLAGS = -m32 -Wall -g -fno-stack-protector -nostdinc -I include
 LDFLAGS = -melf_i386 -Tinit.ld
 
 init.bin: $(OBJS)
-	$(LD) $(LDFLAGS) -o $@ $^
+	$(LD) $(LDFLAGS) -o $@ $^ $(SYSLIB)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $^
