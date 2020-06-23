@@ -10,9 +10,11 @@
 #define READ_S	6
 #define RTICK	7
 #define GTICK	8
+#define GETMOV	9
 #define CLRSCR	10
 #define SETX 	11
 #define SETY 	12
+#define GPIXEL	13
 #define SVGA	14
 #define SPIXEL	15
 #define LOADF	17
@@ -40,4 +42,7 @@ void exec(char p[]);
 int strcmp(char *str1, char *str2);
 int kversion();
 int strlen(char *src);
+int getmov();
+void setpixel(int x, int y, char c);
+char getpixel(int x, int y);
 #endif

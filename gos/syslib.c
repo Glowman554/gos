@@ -112,3 +112,19 @@ int kversion(){
 	asm("int $0x30" : : "a" (KVER));
 	return input;
 }
+
+int getmov(){
+	register char input asm("ebx");
+	asm("int $0x30" : : "a" (GETMOV));
+	return input;
+}
+
+void setpixel(int x, int y, char c){
+	asm("int $0x30" : : "a" (SPIXEL), "b" (x), "c" (y), "d" (c));
+}
+
+char getpixel(int x, int y){
+	register char c asm("edx");
+	asm("int $0x30" : : "a" (GPIXEL), "b" (x), "c" (y));
+	return c;
+}
