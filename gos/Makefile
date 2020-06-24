@@ -1,4 +1,4 @@
-all: init desktop terminal writer cursor
+all: init desktop terminal writer cursor logos info
 
 CFLAGS = -m32 -Wall -g -fno-stack-protector -nostdinc -I include
 
@@ -12,6 +12,12 @@ desktop: syslib.o
 cursor: syslib.o 
 	$(MAKE) -C cursor
 
+logos: syslib.o 
+	$(MAKE) -C logos
+
+info: syslib.o 
+	$(MAKE) -C info
+
 terminal: syslib.o 
 	$(MAKE) -C terminal
 
@@ -21,4 +27,4 @@ writer: syslib.o
 syslib.o: syslib.c
 	$(CC) $(CFLAGS) -c -o $@ $^
 	
-.PHONY: init all desktop terminal writer cursor
+.PHONY: init all desktop terminal writer cursor logos info

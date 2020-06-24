@@ -14,7 +14,7 @@ void _start(void)
 	pnum(0xa, kversion());
 	pchar(0xf,10); // return
 
-	pstring(0x4, "Note: This is a beta release");
+	pstring(0x4, "Note: This is a alpha release");
 	pchar(0xf, 10);
 	exec("terminal.bin");
     while(1);
