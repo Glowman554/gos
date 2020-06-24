@@ -1,1 +1,1 @@
-qemu-system-i386 -cdrom cdrom.iso -serial stdio
+qemu-system-i386 -cdrom cdrom.iso
