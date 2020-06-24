@@ -26,6 +26,8 @@ void _start(void)
 		draw_char(i1[i], ox+1+(i*8), oy, 10, 7);	
 	}*/
 	
-    while(1);
+    //while(1){pnum(0xf, getpixel(1,1)); pchar(0xf,10);};
+	while(1);
 }
+
 

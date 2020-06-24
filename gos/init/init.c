@@ -16,7 +16,21 @@ void _start(void)
 
 	pstring(0x4, "Note: This is a alpha release");
 	pchar(0xf, 10);
-	exec("terminal.bin");
+	pstring(0xf, "1 -> Terminal Boot");
+	pchar(0xf, 10);
+	pstring(0xf, "2 -> Desktop Boot");
+	pchar(0xf, 10);
+	
+	char in = getchar();
+	
+	switch(in){
+		case '1':
+			exec("terminal.bin");
+			break;
+		case '2':
+			exec("desktop.bin");
+			break;
+	}
     while(1);
 }
 
