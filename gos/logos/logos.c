@@ -34,6 +34,6 @@ void _start(void)
 			setpixel(x+5,y+20,info[y][x]);
 		}
 	}
-    while(1);
+	exit(0);
 }
 

@@ -31,6 +31,6 @@ void _start(void)
 			exec("desktop.bin");
 			break;
 	}
-    while(1);
+	exit(0);
 }
 

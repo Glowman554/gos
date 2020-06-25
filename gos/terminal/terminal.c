@@ -74,7 +74,7 @@ void _start(void)
 
 		if(in[len-1] == 'n' && in[len-2] == 'i' && in[len-3] == 'b' && in[len-4] == '.'){
   			exec(in);
-			while(1);
+			exit(0);
 		}
 
 		

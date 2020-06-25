@@ -27,7 +27,7 @@ void _start(void)
 	}*/
 	
     //while(1){pnum(0xf, getpixel(1,1)); pchar(0xf,10);};
-	while(1);
+	exit(0);
 }
 
 

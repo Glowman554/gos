@@ -128,3 +128,8 @@ char getpixel(int x, int y){
 	asm("int $0x30" : : "a" (GPIXEL), "b" (x), "c" (y));
 	return c;
 }
+
+void exit(int code){
+	asm("int $0x30" : : "a" (EXIT), "b" (code));
+	while(1);
+}

@@ -337,7 +337,6 @@ void _start(void)
 	{
 		draw_char(i2[i], ox+1+(i*8), oy+14, 10, 7);	
 	}
-
-    while(1);
+	exit(0);
 }
 
