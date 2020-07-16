@@ -133,3 +133,9 @@ void exit(int code){
 	asm("int $0x30" : : "a" (EXIT), "b" (code));
 	while(1);
 }
+
+int kvendor(){
+	register uint32_t input asm("ebx");
+	asm("int $0x30" : : "a" (KVEN));
+	return input;
+}

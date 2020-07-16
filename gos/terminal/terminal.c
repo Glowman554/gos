@@ -70,6 +70,10 @@ void _start(void)
 			pstring(0xf, "Kernel Reports version ");
 			pnum(0xf, kversion());
 			pchar(0xf, 10);
+			pstring(0xf, "Kernel reports vendor ");
+			pstring(0xf, kvendor());
+			pchar(0xf, 10);
+
 		}
 
 		if(in[len-1] == 'n' && in[len-2] == 'i' && in[len-3] == 'b' && in[len-4] == '.'){

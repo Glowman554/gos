@@ -22,6 +22,7 @@
 #define LSPCI	19
 #define KVER	20
 #define EXIT	21
+#define KVEN	22
 
 
 void pchar(char c, char msg);
@@ -47,4 +48,5 @@ int getmov();
 void setpixel(int x, int y, char c);
 char getpixel(int x, int y);
 void exit(int code);
+int kvendor();
 #endif

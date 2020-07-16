@@ -13,6 +13,9 @@ void _start(void)
 	pstring(0xa, " with GKernel version ");
 	pnum(0xa, kversion());
 	pchar(0xf,10); // return
+	pstring(0xa, "Kernel reports vendor ");
+	pstring(0xa, kvendor());
+	pchar(0xf, 10);
 
 	pstring(0x4, "Note: This is a alpha release");
 	pchar(0xf, 10);
