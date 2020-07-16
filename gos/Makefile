@@ -27,4 +27,14 @@ writer: syslib.o
 syslib.o: syslib.c
 	$(CC) $(CFLAGS) -c -o $@ $^
 	
-.PHONY: init all desktop terminal writer cursor logos info
+clean:
+	$(MAKE) -C init clean
+	$(MAKE) -C desktop clean
+	$(MAKE) -C cursor clean
+	$(MAKE) -C logos clean
+	$(MAKE) -C info clean
+	$(MAKE) -C terminal clean
+	$(MAKE) -C writer clean
+	rm *.o
+
+.PHONY: init all desktop terminal writer cursor logos info clean
