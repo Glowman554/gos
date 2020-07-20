@@ -23,6 +23,7 @@
 #define KVER	20
 #define EXIT	21
 #define KVEN	22
+#define RUNK	23
 
 
 void pchar(char c, char msg);

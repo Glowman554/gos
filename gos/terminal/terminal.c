@@ -2,6 +2,9 @@
 #include <stdbool.h>
 #include "../include/syslib.h"
 
+void kernelfunc_debugerror(){
+	asm volatile("int $0x1");
+}
 
 void _start(void)
 {	
@@ -58,6 +61,8 @@ void _start(void)
 			//pchar(0xf,10); // return
 			pstring(0xf, "uname");
 			pchar(0xf,10); // return
+			pstring(0xf, "debugerr");
+			pchar(0xf,10); // return
 		}
 		if(strcmp(in, "about")==0){
 			pstring(0xf, "Programiert von glowman554");
@@ -75,7 +80,10 @@ void _start(void)
 			pchar(0xf, 10);
 
 		}
+		if(strcmp(in, "debugerr")==0){
+			asm volatile("int $0x30" : : "a" (RUNK), "b" (&kernelfunc_debugerror));
 
+		}
 		if(in[len-1] == 'n' && in[len-2] == 'i' && in[len-3] == 'b' && in[len-4] == '.'){
   			exec(in);
 			exit(0);
