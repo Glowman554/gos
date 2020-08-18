@@ -1,0 +1,7 @@
+init        -> 0x300000
+terminal    -> 0x400000
+writer      -> 0x500000
+desktop     -> 0x600000
+cursor      -> 0x700000
+logos       -> 0x800000
+info        -> 0x900000

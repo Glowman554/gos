@@ -1,0 +1,10 @@
+title glowos
+kernel /kernel
+module /system/init.bin
+module /system/terminal.bin
+module /system/writer.bin
+module /gui/cursor.bin
+module /gui/desktop.bin
+module /gui/info.bin
+module /gui/logos.bin
+boot
