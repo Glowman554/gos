@@ -29,7 +29,7 @@ clean:
 	$(MAKE) -C logos clean
 	$(MAKE) -C info clean
 
-push:
+push: clean
 	git add .
 	git commit -m "autopush"
 	git push -u origin master
