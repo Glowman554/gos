@@ -1,18 +1,16 @@
 all: gos
 
 gos:
-	$(MAKE) -C gos
+	$(MAKE) -C init install
+	$(MAKE) -C terminal install
+	$(MAKE) -C writer install
+	$(MAKE) -C desktop install
+	$(MAKE) -C cursor install
+	$(MAKE) -C logos install
+	$(MAKE) -C info install
 
-iso:
-	cp ./gos/terminal/terminal.bin ./initrd/files/.
-	cp ./gos/writer/writer.bin ./initrd/files/.
-	cp ./gos/init/init.bin ./initrd/files/.
-	cp ./gos/desktop/desktop.bin ./initrd/files/.
-	cp ./gos/cursor/cursor.bin ./initrd/files/.
-	cp ./gos/logos/logos.bin ./initrd/files/.
-	cp ./gos/info/info.bin ./initrd/files/.
-	$(MAKE) -C initrd
-	cp ./initrd/initrd.img ./cdrom_files/.
+iso: gos
+	
 	genisoimage -R -b boot/grub/stage2_eltorito -no-emul-boot -boot-load-size 4 -boot-info-table -o cdrom.iso cdrom_files/
 
 
@@ -23,12 +21,21 @@ update:
 	rm -R gkernel
 
 clean:
-	$(MAKE) -C gos clean
-push:
-	$(MAKE) -C gos clean
+	$(MAKE) -C init clean
+	$(MAKE) -C terminal clean
+	$(MAKE) -C writer clean
+	$(MAKE) -C desktop clean
+	$(MAKE) -C cursor clean
+	$(MAKE) -C logos clean
+	$(MAKE) -C info clean
+
+push: clean
 	git add .
 	git commit -m "autopush"
 	git push -u origin master
 
-.PHONY: all gos iso update clean push
+run: iso
+	qemu-system-i386 -cdrom cdrom.iso -serial stdio
+
+.PHONY: all gos iso update clean push run
 
