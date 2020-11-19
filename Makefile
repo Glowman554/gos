@@ -35,7 +35,7 @@ push: clean
 	git push -u origin master
 
 run: iso
-	qemu-system-i386 -cdrom cdrom.iso -serial stdio
+	qemu-system-i386.exe -cdrom cdrom.iso
 
 .PHONY: all gos iso update clean push run
 
